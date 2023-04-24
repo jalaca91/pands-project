@@ -7,7 +7,7 @@ Pands project of the programming and scripting course
 2. [Project stages and organisation](#project-stages-and-organisation)
 3. [Used tools and libraries](#used-tools-and-libraries)
 4. [Data collection](#data-collection)
-5. Data analysis
+5. [Data analysis](#data-analysis)
 6. Data visualization
 7. Results
 8. Conclusions of the project
@@ -118,6 +118,37 @@ The aliases given to each library are by popular convention, however it is curio
 ___
 
 ## Data collection
+To obtain the dataset we can go to the following link  
+https://archive.ics.uci.edu/ml/datasets/iris  
+Howeber, this presents the iris file in txt format in which the data are separated by commas.  
+In this format the 5 different characteristics are presented without a header.  
+To import the data pandas can be used by the following instructions:  
+
+``
+df.columns(['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class'])
+``  
+
+This fixed the absence of headings.  
+
+But to simplify things and given the huge popularity of this dataset, you can find the data already with a header  
+and in a different format, such as csv. An example is in the following link:  
+https://datahub.io/machine-learning/iris#resource-iris  
+I use the snake case before importing the data set just to give a clearer name to the characteristics of each flower.
+
+___
+
+## Data analysis
+
+Now that the data has been imported, it is important to perform a data cleansing, to remove files that may influence  
+the result of our analysis, i.e. corrupted data, empty cells, duplicates, incorrect data.
+
+
+
+
+
+
+
+
 
 
 
