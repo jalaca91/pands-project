@@ -11,7 +11,7 @@ Pands project of the programming and scripting course
 6. Data visualization
 7. Results
 8. Conclusions of the project
-9. References
+9. [References](#references)
 
 ___
 
@@ -65,15 +65,17 @@ The steps of this project can be divided into the following tasks:
 * Drawing a conclusion from the research carried out
 * References used in the elaboration of the project
 
+**The project consists of the following files**:
+
+* A Readme file containing all the information and procedures used in the project
+* An analysis.py file containing all the code used
+* A text file which is the output of the Python script
+* Png formatted images of the visualised data inside a file called images
+* Iris.csv dataset 
+
 ___
 
 ## Used tools and libraries
-**The project consists of the following files**:
-
-* A Readme file containing all the information and procedures used in the project.  
-* An analysis.py file containing all the code used
-* A text file which is the output of the Python script
-* Png formatted images of the visualised data
 
 **The project uses the following technologies**:
 
@@ -114,7 +116,7 @@ import seaborn as sns
 import pandas as pd
 ```
 
-The aliases given to each library are by popular convention, however it is curious to note that seaborn conventionally uses sns and not sbn.  
+The aliases(np,plt,sns,pd) given to each library are by popular convention, however it is curious to note that seaborn conventionally uses sns and not sbn.  
 ___
 
 ## Data collection
@@ -133,14 +135,45 @@ This fixed the absence of headings.
 But to simplify things and given the huge popularity of this dataset, you can find the data already with a header  
 and in a different format, such as csv. An example is in the following link:  
 https://datahub.io/machine-learning/iris#resource-iris  
-I use the snake case before importing the data set just to give a clearer name to the characteristics of each flower.
+I used the snake case before importing the data set just to gave a clearer name to the characteristics of each flower.
 
 ___
 
 ## Data analysis
 
+#### * Import and cleaning data
 Now that the data has been imported, it is important to perform a data cleansing, to remove files that may influence  
-the result of our analysis, i.e. corrupted data, empty cells, duplicates, incorrect data.
+the result of our analysis, i.e. corrupted data, empty cells, duplicates, incorrect data.  
+First of all, in the .py file containing our script it is necessary to import the libraries mentioned above to obtain these new functionalities.  
+```
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd  
+```  
+Once we import the libraries, we read the file named "iris_csv" into a Pandas Dataframe named "df", to access the information it contains.  
+``
+df = pd.read_csv("iris_csv.csv")  
+``  
+To do the project we are asked to do the following: Outputs a summary of each variable to a single text file  
+``  
+summary = open("my_summary.txt", "w",newline='\n')
+``  
+This create a folder called my_summary.txt, which will contain the result of the analyses performed by the script.  
+
+Now, it is time to clean the data,for this we are going to use several components of the Pandas module.  
+First we are going to clean up the empty cells, however this step can be omitted as the table shown in the description
+indicates that there are no missing values, so it also applies to wrong format.  
+However, we need to check for duplicate data to do so we type the following code in the terminal:
+``
+print(df.duplicated())
+``
+![image](https://user-images.githubusercontent.com/110190460/234237142-6325faba-25af-4832-ae94-fe0ccef3db00.png)  
+This function returns True for every row that is a duplicate, othwerwise False, so we can see there is no duplicate values.
+
+#### * Analysis
+
+Once the data have been cleaned, you can proceed to extract information from them.
 
 
 
@@ -160,6 +193,30 @@ the result of our analysis, i.e. corrupted data, empty cells, duplicates, incorr
 
 
 
+
+
+
+____
+
+
+![loading](https://user-images.githubusercontent.com/110190460/234225693-91160e61-66d0-40b2-aa39-7045b1034ac0.gif)
+
+
+## References
+
+https://en.wikipedia.org/wiki/Iris_flower_data_set   Information about the dataset  
+https://archive.ics.uci.edu/ml/datasets/iris   Dataset in format .data  
+https://datahub.io/machine-learning/iris#resource-iris    Dataset used  
+https://numpy.org/   
+https://matplotlib.org/  
+https://seaborn.pydata.org/  
+https://pandas.pydata.org/  
+https://stackoverflow.com/questions/41499857/why-import-seaborn-as-sns   Seaborn alias  
+https://www.geeksforgeeks.org/python-pandas-dataframe-columns/   Pandas column method  
+https://www.w3schools.com/python/pandas/pandas_csv.asp   Pandas Read CSV  
+https://www.w3schools.com/python/python_file_write.asp  Python File Write/Create  
+https://www.freecodecamp.org/news/python-new-line-and-how-to-python-print-without-a-newline/  Newline  
+https://www.w3schools.com/python/pandas/pandas_cleaning_duplicates.asp  Duplicated values
 
 
 
