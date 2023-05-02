@@ -174,6 +174,34 @@ This function returns True for every row that is a duplicate, othwerwise False, 
 #### * Analysis
 
 Once the data have been cleaned, you can proceed to extract information from them.
+First, let's look at some basic statistical data for our dataset.  
+These statistics are the following: mean, standard deviation, minimum, maximum and percentiles (25%, 50% and 75%).  
+The explanation of these qualities is as follows:  
+
+The mean is a measure of central tendency of a finite set of numbers: specifically, the sum of the values divided by the number of values.  
+The standard deviation is a measure of the amount of variation or dispersion of a set of values.  
+Min is the smallest value in the set of values.  
+Max is the biggest value in the set of values.
+Percentile 25% is the value at which 25% of the answers lie below that value.  
+Percentile 75% lie above that value
+Percentile 50%(also known as the Median). The median cuts the data set in half.  
+
+These basic statistical data would be collected as follows:  
+
+```
+Stat Summary: 
+
+       sepal_length  sepal_width  petal_length  petal_width
+count    150.000000   150.000000    150.000000   150.000000
+mean       5.843333     3.054000      3.758667     1.198667
+std        0.828066     0.433594      1.764420     0.763161
+min        4.300000     2.000000      1.000000     0.100000
+25%        5.100000     2.800000      1.600000     0.300000
+50%        5.800000     3.000000      4.350000     1.300000
+75%        6.400000     3.300000      5.100000     1.800000
+max        7.900000     4.400000      6.900000     2.500000   
+
+```
 
 
 
@@ -196,7 +224,7 @@ Once the data have been cleaned, you can proceed to extract information from the
 
 
 
-____
+______
 
 
 ![loading](https://user-images.githubusercontent.com/110190460/234225693-91160e61-66d0-40b2-aa39-7045b1034ac0.gif)
