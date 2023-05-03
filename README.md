@@ -256,7 +256,12 @@ min         4.90000     2.200000      4.500000      1.40000
 75%         6.90000     3.175000      5.875000      2.30000
 max         7.90000     3.800000      6.900000      2.50000 
 ``` 
+After obtaining the basic statistical parameters of our 3 classes of flowers, a data that I consider interesting is to group the means
+of the 3 classes of their 4 attributes(sepal_length sepal_width petal_length and petal_width), in order to facilitate the comparison of these data.  
+To do this again we use a feature of the Pandas library, called dataframe groupby method()  
 
+
+https://www.w3schools.com/python/pandas/ref_df_groupby.asp
 
 
 
@@ -309,7 +314,10 @@ https://www.w3schools.com/python/pandas/pandas_csv.asp   Pandas Read CSV
 https://www.w3schools.com/python/python_file_write.asp  Python File Write/Create  
 https://www.freecodecamp.org/news/python-new-line-and-how-to-python-print-without-a-newline/  Newline  
 https://www.w3schools.com/python/pandas/pandas_cleaning_duplicates.asp  Duplicated values  
-[(https://www.codigopiton.com/seleccionar-filas-de-dataframe-segun-valor-de-columnas](https://www.codigopiton.com/seleccionar-filas-de-dataframe-segun-valor-de-columnas/#:~:text=Para%20seleccionar%20filas%20de%20un,puede%20usar%20la%20funci%C3%B3n%20query%20). Pandas dataframes
+[(https://www.codigopiton.com/seleccionar-filas-de-dataframe-segun-valor-de-columnas](https://www.codigopiton.com/seleccionar-filas-de-dataframe-segun-valor-de-columnas/#:~:text=Para%20seleccionar%20filas%20de%20un,puede%20usar%20la%20funci%C3%B3n%20query%20). Pandas dataframes  
+https://www.w3schools.com/python/pandas/ref_df_groupby.asp  Pandas DataFrame groupby() Method  
+
+
 
 
 
