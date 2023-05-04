@@ -8,7 +8,7 @@ Pands project of the programming and scripting course
 3. [Used tools and libraries](#used-tools-and-libraries)
 4. [Data collection](#data-collection)
 5. [Data analysis](#data-analysis)
-6. Data visualization
+6. [Data visualization](#data-visualization)
 7. Results
 8. Conclusions of the project
 9. [References](#references)
@@ -117,12 +117,15 @@ import pandas as pd
 ```
 
 The aliases(np,plt,sns,pd) given to each library are by popular convention, however it is curious to note that seaborn conventionally uses sns and not sbn.  
+  
+--> It is important to note that for the script developed in analysis.py to appear in the file called my_summary.txt , you need to include in the code that includes the built-in print function the following: `` file=summary``  
+This way the output of the script will appear in the txt file and not in the IDE terminal (in this case Visual Studio Code). 
 ___
 
 ## Data collection
 To obtain the dataset we can go to the following link  
 https://archive.ics.uci.edu/ml/datasets/iris  
-Howeber, this presents the iris file in txt format in which the data are separated by commas.  
+However, this presents the iris file in txt format in which the data are separated by commas.  
 In this format the 5 different characteristics are presented without a header.  
 To import the data pandas can be used by the following instructions:  
 
@@ -167,7 +170,8 @@ indicates that there are no missing values, so it also applies to wrong format.
 However, we need to check for duplicate data to do so we type the following code in the terminal:
 ``
 print(df.duplicated())
-``
+``  
+
 ![image](https://user-images.githubusercontent.com/110190460/234237142-6325faba-25af-4832-ae94-fe0ccef3db00.png)  
 This function returns True for every row that is a duplicate, othwerwise False, so we can see there is no duplicate values.
 
@@ -273,7 +277,44 @@ sepal_length        5.006            5.936           6.588
 sepal_width         3.418            2.770           2.974
 petal_length        1.464            4.260           5.552
 petal_width         0.244            1.326           2.026 
+```   
+
+To look at the size of the plant attributes in more detail, we can also group the min and max values using the same method.  
+
+For minimum values: `` min_df = df.groupby("class").min().transpose() ``  
+
+```
+Min Summary:
+class         Iris-setosa  Iris-versicolor  Iris-virginica
+sepal_length          4.3              4.9             4.9
+sepal_width           2.3              2.0             2.2
+petal_length          1.0              3.0             4.5
+petal_width           0.1              1.0             1.4 
+```  
+
+
+
+For maximum values: `` max_df = df.groupby("class").max().transpose() ``  
+
 ``` 
+Max Summary:
+class         Iris-setosa  Iris-versicolor  Iris-virginica
+sepal_length          5.8              7.0             7.9
+sepal_width           4.4              3.4             3.8
+petal_length          1.9              5.1             6.9
+petal_width           0.6              1.8             2.5  
+```  
+  
+After this basic analysis, we proceed to plot the data set for a better visualisation of what the data tell us.  
+
+#### * Data visualization
+  
+
+
+
+
+
+
 
 
 
