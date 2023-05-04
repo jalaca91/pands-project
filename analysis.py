@@ -36,6 +36,11 @@ print(iris_versicolordf.describe(),"\n",file=summary)
 print("Stat Summary virginica: \r",file=summary)
 print(iris_virginicadf.describe(),"\n",file=summary)
 
+# Combine mean in one table
+print("Mean Summary: \r",)
+mean_df = df.groupby("class").mean().transpose()
+print(mean_df,"\n",)
+
 summary.close()           # This goes at the end of the script
 
 
