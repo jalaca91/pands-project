@@ -176,8 +176,10 @@ This function returns True for every row that is a duplicate, othwerwise False, 
 Once the data have been cleaned, you can proceed to extract information from them.
 First, let's look at some basic statistical data for our dataset.  
 These statistics are the following: mean, standard deviation, minimum, maximum and percentiles (25%, 50% and 75%).  
-The explanation of these qualities is as follows:  
+``df.describe(),"\n",file=summary``  
+With this function a summary of these characteristics is opened in the .txt file created earlier.  
 
+The explanation of these qualities is as follows:  
 The mean is a measure of central tendency of a finite set of numbers: specifically, the sum of the values divided by the number of values.  
 The standard deviation is a measure of the amount of variation or dispersion of a set of values.  
 Min is the smallest value in the set of values.  
@@ -202,6 +204,73 @@ min        4.300000     2.000000      1.000000     0.100000
 max        7.900000     4.400000      6.900000     2.500000   
 
 ```
+This gives us an overview of the attributes of our flowers, however, it is data that aggregates all 3 flower species, so it is interesting to perform the same basic analysis for each flower variety.
+
+For this, we will obtain 3 dataframes from the main one and each dataframe, using the DataFrame.loc  
+
+``iris_setosadf=df.loc[df["class"]=="Iris-setosa"]``  We acces the rows where the value in the "class" column is equal to "Iris-setosa"  
+``iris_versicolordf=df.loc[df["class"]=="Iris-versicolor"] ``  We acces the rows where the value in the "class" column is equal to "Iris-versicolor"  
+``iris_virginicadf=df.loc[df["class"]=="Iris-virginica"]`` We acces the rows where the value in the "class" column is equal to "Iris-virginica"  
+
+We have now the basic statistical parameters for each of the 3 classes of flowers.  
+
+Iris-setosa  
+```
+Stat Summary setosa: 
+
+       sepal_length  sepal_width  petal_length  petal_width
+count      50.00000    50.000000     50.000000     50.00000
+mean        5.00600     3.418000      1.464000      0.24400
+std         0.35249     0.381024      0.173511      0.10721
+min         4.30000     2.300000      1.000000      0.10000
+25%         4.80000     3.125000      1.400000      0.20000
+50%         5.00000     3.400000      1.500000      0.20000
+75%         5.20000     3.675000      1.575000      0.30000
+max         5.80000     4.400000      1.900000      0.60000 
+```  
+Iris-versicolor  
+``` 
+Stat Summary versicolor: 
+
+       sepal_length  sepal_width  petal_length  petal_width
+count     50.000000    50.000000     50.000000    50.000000
+mean       5.936000     2.770000      4.260000     1.326000
+std        0.516171     0.313798      0.469911     0.197753
+min        4.900000     2.000000      3.000000     1.000000
+25%        5.600000     2.525000      4.000000     1.200000
+50%        5.900000     2.800000      4.350000     1.300000
+75%        6.300000     3.000000      4.600000     1.500000
+max        7.000000     3.400000      5.100000     1.800000 
+```  
+Iris-virginica  
+```
+Stat Summary virginica: 
+
+       sepal_length  sepal_width  petal_length  petal_width
+count      50.00000    50.000000     50.000000     50.00000
+mean        6.58800     2.974000      5.552000      2.02600
+std         0.63588     0.322497      0.551895      0.27465
+min         4.90000     2.200000      4.500000      1.40000
+25%         6.22500     2.800000      5.100000      1.80000
+50%         6.50000     3.000000      5.550000      2.00000
+75%         6.90000     3.175000      5.875000      2.30000
+max         7.90000     3.800000      6.900000      2.50000 
+``` 
+After obtaining the basic statistical parameters of our 3 classes of flowers, a data that I consider interesting is to group the means
+of the 3 classes of their 4 attributes(sepal_length sepal_width petal_length and petal_width), in order to facilitate the comparison of these data.  
+To do this again we use a feature of the Pandas library, called dataframe groupby method()  
+
+
+https://www.w3schools.com/python/pandas/ref_df_groupby.asp
+
+
+
+
+
+
+
+
+
 
 
 
@@ -244,7 +313,11 @@ https://www.geeksforgeeks.org/python-pandas-dataframe-columns/   Pandas column m
 https://www.w3schools.com/python/pandas/pandas_csv.asp   Pandas Read CSV  
 https://www.w3schools.com/python/python_file_write.asp  Python File Write/Create  
 https://www.freecodecamp.org/news/python-new-line-and-how-to-python-print-without-a-newline/  Newline  
-https://www.w3schools.com/python/pandas/pandas_cleaning_duplicates.asp  Duplicated values
+https://www.w3schools.com/python/pandas/pandas_cleaning_duplicates.asp  Duplicated values  
+[(https://www.codigopiton.com/seleccionar-filas-de-dataframe-segun-valor-de-columnas](https://www.codigopiton.com/seleccionar-filas-de-dataframe-segun-valor-de-columnas/#:~:text=Para%20seleccionar%20filas%20de%20un,puede%20usar%20la%20funci%C3%B3n%20query%20). Pandas dataframes  
+https://www.w3schools.com/python/pandas/ref_df_groupby.asp  Pandas DataFrame groupby() Method  
+
+
 
 
 
