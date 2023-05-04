@@ -37,9 +37,19 @@ print("Stat Summary virginica: \r",file=summary)
 print(iris_virginicadf.describe(),"\n",file=summary)
 
 # Combine mean in one table
-print("Mean Summary: \r",)
+print("Mean Summary: \r",file=summary)
 mean_df = df.groupby("class").mean().transpose()
-print(mean_df,"\n",)
+print(mean_df,"\n",file=summary)
+
+# Combine min in one table
+print("Min Summary: \r",file=summary)
+min_df = df.groupby("class").min().transpose()
+print(min_df,"\n",file=summary)
+
+# Combine max in one table
+print("Max Summary: \r",file=summary)
+max_df = df.groupby("class").max().transpose()
+print(max_df,"\n",file=summary)
 
 summary.close()           # This goes at the end of the script
 
