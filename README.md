@@ -259,9 +259,22 @@ max         7.90000     3.800000      6.900000      2.50000
 After obtaining the basic statistical parameters of our 3 classes of flowers, a data that I consider interesting is to group the means
 of the 3 classes of their 4 attributes(sepal_length sepal_width petal_length and petal_width), in order to facilitate the comparison of these data.  
 To do this again we use a feature of the Pandas library, called dataframe groupby method()  
+`` mean_df = df.groupby("class").mean().transpose() ``  
 
+With this line of code we manage to calculate the mean of each column that has the value "class" and store it in a new variable called mean_df
+where the values are transposed(they go from rows to columns).  
 
-https://www.w3schools.com/python/pandas/ref_df_groupby.asp
+It allows us to compare this attribute more easily and the result looks like this:
+``` 
+Mean Summary: 
+
+class         Iris-setosa  Iris-versicolor  Iris-virginica
+sepal_length        5.006            5.936           6.588
+sepal_width         3.418            2.770           2.974
+petal_length        1.464            4.260           5.552
+petal_width         0.244            1.326           2.026 
+``` 
+
 
 
 
