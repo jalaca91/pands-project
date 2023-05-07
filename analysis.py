@@ -51,6 +51,17 @@ print("Max Summary: \r",file=summary)
 max_df = df.groupby("class").max().transpose()
 print(max_df,"\n",file=summary)
 
+# Histogram of each variable 
+sns.displot(df, x="petal_length", hue="class", palette="colorblind", kde=False)
+plt.savefig("Histogram petal_length.png")
+sns.displot(df, x="petal_width", hue="class", palette="colorblind", kde=False)
+plt.savefig("Histogram petal_width.png")
+sns.displot(df, x="sepal_length", hue="class", palette="colorblind", kde=False)
+plt.savefig("Histogram sepal_length.png")
+sns.displot(df, x="sepal_width", hue="class", palette="colorblind", kde=False)
+plt.savefig("Histogram sepal_width.png")
+plt.show()  
+
 summary.close()           # This goes at the end of the script
 
 
