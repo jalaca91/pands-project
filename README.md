@@ -307,7 +307,28 @@ petal_width           0.6              1.8             2.5
   
 After this basic analysis, we proceed to plot the data set for a better visualisation of what the data tell us.  
 
-#### * Data visualization
+#### * Data visualization  
+
+For this part we are going to use the functionalities offered by the matplotib and seaborn libraries.  
+First of all we are going to make a histogram for each of the variables (petal_lenght,petal_width,sepal_lenght and sepal_width).  
+Using the following code (in this case applied to petal_length, for the other variables it is necessary to change the input of the x):  
+
+`` sns.displot(df, x="petal_length", hue="class", palette="colorblind", kde=False)``  
+
+This code generates a histogram using Seaborn's displot functionusing the data set df(previously used).  
+The histogram is using class to choose the 3 flower varieties and the colour palette is set to "colourblind".
+The kde parameter is set to False to remove the kernel density estimation curve from the graph.  
+A kernel density estimation (KDE) plot is a common way to visualize the distribution of a dataset.  
+It provides a estimation of the probability density function of a continuous random variable, which can be useful to get an idea of the shape of the distribution. In this case by false state that we removed it as it did not provide additional information of interest.  
+
+The result is as follows:  
+
+Histogram petal_length.png
+
+
+
+
+
   
 
 
@@ -369,7 +390,10 @@ https://www.w3schools.com/python/python_file_write.asp  Python File Write/Create
 https://www.freecodecamp.org/news/python-new-line-and-how-to-python-print-without-a-newline/  Newline  
 https://www.w3schools.com/python/pandas/pandas_cleaning_duplicates.asp  Duplicated values  
 [(https://www.codigopiton.com/seleccionar-filas-de-dataframe-segun-valor-de-columnas](https://www.codigopiton.com/seleccionar-filas-de-dataframe-segun-valor-de-columnas/#:~:text=Para%20seleccionar%20filas%20de%20un,puede%20usar%20la%20funci%C3%B3n%20query%20). Pandas dataframes  
-https://www.w3schools.com/python/pandas/ref_df_groupby.asp  Pandas DataFrame groupby() Method  
+https://www.w3schools.com/python/pandas/ref_df_groupby.asp  Pandas DataFrame groupby() Method 
+https://seaborn.pydata.org/generated/seaborn.histplot.html Seaborn histoplot  
+https://seaborn.pydata.org/tutorial/aesthetics.html Seaborn figure aesthetics  
+https://seaborn.pydata.org/tutorial/color_palettes.html Seaborn color paletes
 
 
 
