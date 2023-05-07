@@ -307,9 +307,12 @@ petal_width           0.6              1.8             2.5
   
 After this basic analysis, we proceed to plot the data set for a better visualisation of what the data tell us.  
 
-#### * Data visualization  
+## Data visualization  
 
 For this part we are going to use the functionalities offered by the matplotib and seaborn libraries.  
+
+* Histogram petal ( petal_lenght,petal_width,sepal_lenght and sepal_width)  
+
 First of all we are going to make a histogram for each of the variables (petal_lenght,petal_width,sepal_lenght and sepal_width).  
 Using the following code (in this case applied to petal_length, for the other variables it is necessary to change the input of the x):  
 
@@ -323,7 +326,55 @@ It provides a estimation of the probability density function of a continuous ran
 
 The result is as follows:  
 
-Histogram petal_length.png
+![Histogram petal_length](https://user-images.githubusercontent.com/110190460/236702112-0c50fcbd-0924-4798-8863-5df45566069d.png)  
+
+To view the rest of the histograms for the other 3 characteristics, see :  
+[Histogram_iris](Histogram_iris)  
+
+* Mean summary plot  
+
+For this graph we are going to show the results obtained in the dataframe mean_df and it will show the averages of the different attributes of 
+each flower class.  
+We use the following code for this purpose  
+```
+mean_df.plot(kind="bar")  
+plt.title("Mean Summary")  
+plt.xlabel("Attributes")  
+plt.xticks(rotation=0)  
+plt.ylabel("Mean Value")  
+plt.show()  
+```  
+With this code `` plt.xticks(rotation=0) `` We fixed the problem of having the x-axis variables vertical and moved them to horizontal for better  
+visualisation and to avoid confusion.  
+``plt.show()`` can be included only once at the end of the data visualisation code block, as this will cause all graphs to be displayed.
+
+![Mean summary](https://user-images.githubusercontent.com/110190460/236702584-45544f51-8ca8-4b6a-b770-c70fa892d140.png)  
+
+* Min summary plot  
+
+To make a graph with the min values we use the dataframe min_df , where the code will be practically similar to the case used for mean_df.  
+
+![Min summary](https://user-images.githubusercontent.com/110190460/236703199-7d24d1ca-4fd5-40f5-9771-b68de4b53d3b.png)  
+
+* Max summary plot  
+
+Finally for the max case we repeat the previous step.  
+
+![Max summary](https://user-images.githubusercontent.com/110190460/236703225-618bc544-d82b-4a8d-9737-3573a529555c.png)  
+
+* Other graphs....................... seaborn scatter plots.............
+
+
+ 
+
+
+
+
+
+
+
+
+
 
 
 
