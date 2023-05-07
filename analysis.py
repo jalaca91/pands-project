@@ -53,14 +53,44 @@ print(max_df,"\n",file=summary)
 
 # Histogram of each variable 
 sns.displot(df, x="petal_length", hue="class", palette="colorblind", kde=False)
-plt.savefig("Histogram petal_length.png")
+#plt.savefig("Histogram petal_length.png")
 sns.displot(df, x="petal_width", hue="class", palette="colorblind", kde=False)
-plt.savefig("Histogram petal_width.png")
+#plt.savefig("Histogram petal_width.png")
 sns.displot(df, x="sepal_length", hue="class", palette="colorblind", kde=False)
-plt.savefig("Histogram sepal_length.png")
+#plt.savefig("Histogram sepal_length.png")
 sns.displot(df, x="sepal_width", hue="class", palette="colorblind", kde=False)
-plt.savefig("Histogram sepal_width.png")
-plt.show()  
+#plt.savefig("Histogram sepal_width.png")
+ 
+
+# Mean summary plot
+mean_df.plot(kind="bar")
+plt.title("Mean Summary")
+plt.xlabel("Attributes")
+plt.xticks(rotation=0)          # Rotates x-tick labels to be horizontal
+plt.ylabel("Mean Value")
+plt.savefig("Mean summary plot.png")
+
+
+# Min summary plot
+min_df.plot(kind="bar")
+plt.title("Min Summary")
+plt.xlabel("Attributes")
+plt.xticks(rotation=0)          
+plt.ylabel("Mean Value")
+plt.savefig("Min summary plot.png")
+
+
+# Max summary plot
+max_df.plot(kind="bar")
+plt.title("Max Summary")
+plt.xlabel("Attributes")
+plt.xticks(rotation=0)          
+plt.ylabel("Mean Value")
+plt.savefig("Max summary plot.png")
+
+
+plt.show()
+
 
 summary.close()           # This goes at the end of the script
 
