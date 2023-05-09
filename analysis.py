@@ -7,10 +7,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-
-df = pd.read_csv("iris_csv.csv")                # Read a CSV file named "iris_csv" into a Pandas DataFrame named "df"
-summary = open("my_summary.txt", "w")
-
+# Read a CSV file named "iris_csv" into a Pandas DataFrame named "df"
+df = pd.read_csv("iris_csv.csv")                
+summary = open("my_summary.txt", "w")       # Open the .txt file
 
 # Cleaning data
 print("\rDuplicate rows:\n\t",file=summary)
@@ -18,9 +17,9 @@ print("\rDuplicate rows:\n\t",file=summary)
 # Starting with data analysis
 
 print("Stat Summary: \r",file=summary)
-print(df.describe(),"\n",file=summary)          # Stat summary of 3 species
+print(df.describe(),"\n",file=summary)             # Stat summary of 3 species
 
-iris_setosadf=df.loc[df["class"]=="Iris-setosa"] 
+iris_setosadf=df.loc[df["class"]=="Iris-setosa"]             # Create 3 subsets of the dataset for each species
 iris_versicolordf=df.loc[df["class"]=="Iris-versicolor"] 
 iris_virginicadf=df.loc[df["class"]=="Iris-virginica"]
 
@@ -53,14 +52,13 @@ print(max_df,"\n",file=summary)
 
 # Histogram of each variable 
 sns.displot(df, x="petal_length", hue="class", palette="colorblind", kde=False)
-#plt.savefig("Histogram petal_length.png")
+plt.savefig("Histogram petal_length.png")
 sns.displot(df, x="petal_width", hue="class", palette="colorblind", kde=False)
-#plt.savefig("Histogram petal_width.png")
+plt.savefig("Histogram petal_width.png")
 sns.displot(df, x="sepal_length", hue="class", palette="colorblind", kde=False)
-#plt.savefig("Histogram sepal_length.png")
+plt.savefig("Histogram sepal_length.png")
 sns.displot(df, x="sepal_width", hue="class", palette="colorblind", kde=False)
-#plt.savefig("Histogram sepal_width.png")
- 
+plt.savefig("Histogram sepal_width.png")
 
 # Mean summary plot
 mean_df.plot(kind="bar")
@@ -70,7 +68,6 @@ plt.xticks(rotation=0)          # Rotates x-tick labels to be horizontal
 plt.ylabel("Mean Value")
 plt.savefig("Mean summary plot.png")
 
-
 # Min summary plot
 min_df.plot(kind="bar")
 plt.title("Min Summary")
@@ -79,20 +76,32 @@ plt.xticks(rotation=0)
 plt.ylabel("Mean Value")
 plt.savefig("Min summary plot.png")
 
-
 # Max summary plot
 max_df.plot(kind="bar")
 plt.title("Max Summary")
 plt.xlabel("Attributes")
 plt.xticks(rotation=0)          
 plt.ylabel("Mean Value")
-plt.savefig("Max summary plot.png")
+plt.savefig("Max summary plot.png")  
 
+# Scatterplot for sepal variables
+plt.figure(figsize=(4,4)) 
+sns.scatterplot(x = 'sepal_length', y = 'sepal_width',data=df, hue='class', palette='colorblind')
+plt.title('Sepal variables') 
+sns.set(style='dark') 
+plt.savefig("Scatterplot_sepal.png")  
+
+# Scatterplot for petal variables
+plt.figure(figsize=(4,4)) 
+sns.scatterplot(x = 'petal_length', y = 'petal_width',data=df, hue='class', palette='colorblind')
+plt.title('Petal variables') 
+sns.set(style='dark') 
+plt.savefig("Scatterplot_petal.png") 
 
 plt.show()
 
 
-summary.close()           # This goes at the end of the script
+summary.close()     # Free up system resources and avoid problems
 
 
 
