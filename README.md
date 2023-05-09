@@ -7,8 +7,16 @@ Pands project of the programming and scripting course
 2. [Project stages and organisation](#project-stages-and-organisation)
 3. [Used tools and libraries](#used-tools-and-libraries)
 4. [Data collection](#data-collection)
-5. [Data analysis](#data-analysis)
-6. [Data visualization](#data-visualization)
+5. [Data analysis](#data-analysis)  
+      5.1 [Import and cleaning data](#import-and-cleaning-data)  
+      5.2 [Analysis](#analysis)
+6. [Data visualization](#data-visualization)  
+      6.1 [Histogram petal](#histogram-petal)  
+      6.2 [Mean summary plot](#mean-summary-plot)  
+      6.3 [Min summary plot](#min-summary-plot)  
+      6.4 [Max summary plot](#max-summary-plot)  
+      6.5 [Petal scatter plot](#petal-scatter-plot)  
+      6.6 [Sepal scatter plot](#sepal-scatter-plot)
 7. [Results](#results)
 8. [Conclusions of the project](#conclusions-of-the-project)
 9. [References](#references)
@@ -123,7 +131,7 @@ This way the output of the script will appear in the txt file and not in the IDE
 ___
 
 ## Data collection
-To obtain the dataset we can go to the following link  
+To obtain the dataset we can go to the following link:  
 https://archive.ics.uci.edu/ml/datasets/iris  
 However, this presents the iris file in txt format in which the data are separated by commas.  
 In this format the 5 different characteristics are presented without a header.  
@@ -144,7 +152,7 @@ ___
 
 ## Data analysis
 
-#### * Import and cleaning data
+#### Import and cleaning data
 Now that the data has been imported, it is important to perform a data cleansing, to remove files that may influence  
 the result of our analysis, i.e. corrupted data, empty cells, duplicates, incorrect data.  
 First of all, in the .py file containing our script it is necessary to import the libraries mentioned above to obtain these new functionalities.  
@@ -175,7 +183,7 @@ print(df.duplicated())
 ![image](https://user-images.githubusercontent.com/110190460/234237142-6325faba-25af-4832-ae94-fe0ccef3db00.png)  
 This function returns True for every row that is a duplicate, othwerwise False, so we can see there is no duplicate values.
 
-#### * Analysis
+#### Analysis
 
 Once the data have been cleaned, you can proceed to extract information from them.
 First, let's look at some basic statistical data for our dataset.  
@@ -310,7 +318,7 @@ ___
 
 For this part we are going to use the functionalities offered by the matplotib and seaborn libraries.  
 
-* Histogram petal ( petal_lenght,petal_width,sepal_lenght and sepal_width)  
+#### Histogram petal 
 
 First of all we are going to make a histogram for each of the variables (petal_lenght,petal_width,sepal_lenght and sepal_width).  
 Using the following code (in this case applied to petal_length, for the other variables it is necessary to change the input of the x):  
@@ -330,7 +338,7 @@ The result is as follows:
 To view the rest of the histograms for the other 3 characteristics, see :  
 [Histogram_iris](Histogram_iris)  
 
-* Mean summary plot  
+### Mean summary plot  
 
 For this graph we are going to show the results obtained in the dataframe mean_df and it will show the averages of the different attributes of 
 each flower class.  
@@ -349,13 +357,14 @@ visualisation and to avoid confusion.
 
 ![Mean summary](https://user-images.githubusercontent.com/110190460/236702584-45544f51-8ca8-4b6a-b770-c70fa892d140.png)  
 
-* Min summary plot  
+### Min summary plot  
 
 To make a graph with the min values we use the dataframe min_df , where the code will be practically similar to the case used for mean_df.  
 
-![Min summary](https://user-images.githubusercontent.com/110190460/236703199-7d24d1ca-4fd5-40f5-9771-b68de4b53d3b.png)  
+![Min summary](https://user-images.githubusercontent.com/110190460/236703199-7d24d1ca-4fd5-40f5-9771-b68de4b53d3b.png) 
 
-* Max summary plot  
+
+### Max summary plot  
 
 Finally for the max case we repeat the previous step.  
 
@@ -370,8 +379,7 @@ If the points on the graph form a line or pattern, this indicates a relationship
 On the other hand, if the points are randomly scattered, this indicates that there is no clear relationship between the two variables
 
 
-
-* Petal Scatter plot  
+#### Petal Scatter plot  
 
 We use the following code to make this graph:  
 ```  
@@ -390,7 +398,7 @@ The palette parameter sets the color scheme for the plot.
 
 ![Scatterplot petal variables](https://github.com/jalaca91/pands-project/assets/110190460/9cc8e197-5e57-410f-bccb-288199b34c0e)  
 
-* Sepal Scatter plot  
+#### Sepal Scatter plot  
 
 For the case of the sepal we change the values of the previous scatter plot:  
 "x" for sepal_length and "y" for sepal_width.  
