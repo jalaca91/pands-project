@@ -9,8 +9,8 @@ Pands project of the programming and scripting course
 4. [Data collection](#data-collection)
 5. [Data analysis](#data-analysis)
 6. [Data visualization](#data-visualization)
-7. Results
-8. Conclusions of the project
+7. [Results](#results)
+8. [Conclusions of the project](#conclusions-of-the-project)
 9. [References](#references)
 
 ___
@@ -70,7 +70,7 @@ The steps of this project can be divided into the following tasks:
 * A Readme file containing all the information and procedures used in the project
 * An analysis.py file containing all the code used
 * A text file which is the output of the Python script
-* Png formatted images of the visualised data inside a file called images
+* Png formatted images of the visualised data inside 3 folders: Histograms,Scatterplots and Mean,min,max plots
 * Iris.csv dataset 
 
 ___
@@ -292,8 +292,6 @@ petal_length          1.0              3.0             4.5
 petal_width           0.1              1.0             1.4 
 ```  
 
-
-
 For maximum values: `` max_df = df.groupby("class").max().transpose() ``  
 
 ``` 
@@ -306,6 +304,7 @@ petal_width           0.6              1.8             2.5
 ```  
   
 After this basic analysis, we proceed to plot the data set for a better visualisation of what the data tell us.  
+___
 
 ## Data visualization  
 
@@ -362,7 +361,96 @@ Finally for the max case we repeat the previous step.
 
 ![Max summary](https://user-images.githubusercontent.com/110190460/236703225-618bc544-d82b-4a8d-9737-3573a529555c.png)  
 
-* Other graphs....................... seaborn scatter plots.............
+To conclude our data visualisation section, we will construct a scatter plot for each pair of variables.  
+A scatter plot is a type of graph used to show the relationship between two numerical variables.  
+Each point on the graph represents a pair of values, one for each variable. The horizontal axis represents one variable, and the vertical axis represents the other variable.  
+
+A scatter plot is commonly used to see if there is any correlation or pattern between the two variables.  
+If the points on the graph form a line or pattern, this indicates a relationship between the two variables.  
+On the other hand, if the points are randomly scattered, this indicates that there is no clear relationship between the two variables
+
+
+
+* Petal Scatter plot  
+
+We use the following code to make this graph:  
+```  
+plt.figure(figsize=(4,4)) 
+sns.scatterplot(x = 'petal_length', y = 'petal_width',data=df, hue='class', palette='colorblind')
+plt.title('Petal variables') 
+sns.set(style='dark') 
+plt.savefig("Scatterplot_petal.png") 
+```  
+
+The first line create a figure with 4x4 size  
+``sns.scatterplot(x = 'petal_length', y = 'petal_width',data=df, hue='class', palette='colorblind')`` This line creates a scatter plot using the Seaborn library with the petal_length variable on the x-axis and the petal_width variable on the y-axis with the data contained in the Dataframe df.  
+The hue parameter is set to the class variable, which allows us to color the points on the plot based on the class of iris they belong to.  
+The palette parameter sets the color scheme for the plot.  
+``sns.set(style='dark') `` This line sets a dark background for the plot.   
+
+![Scatterplot petal variables](https://github.com/jalaca91/pands-project/assets/110190460/9cc8e197-5e57-410f-bccb-288199b34c0e)  
+
+* Sepal Scatter plot  
+
+For the case of the sepal we change the values of the previous scatter plot:  
+"x" for sepal_length and "y" for sepal_width.  
+
+![Scatterplot sepal variable](https://github.com/jalaca91/pands-project/assets/110190460/4557b461-41b6-4f95-a345-1dd0f66509e6)  
+
+___
+
+## Results  
+
+After carrying out the analyses and creating graphs from these processes, we can draw the following conclusions:  
+
+* Mean Summary
+For the means of the variables:
+
+| class          | Iris-setosa | Iris-versicolor |Iris-virginica |
+|----------------|-------------|----------------|----------------|
+| sepal_length   | 5.006       | 5.936          | 6.588          |
+| sepal_width    | 3.418       | 2.770          | 2.974          |
+| petal_length   | 1.464       | 4.260          | 5.552          |
+| petal_width    | 0.244       | 1.326          | 2.026          |  
+
+We can observe that the iris virginica variety has higher values in 3 of its attributes than the rest of the varieties, indicating a larger size.  
+On the other hand, the iris setosa variety is the one with the smallest size in 3 of its four attributes.  
+
+* Min Summary  
+This table shows the average minimum values for each flower class.  
+
+| class         | Iris-setosa | Iris-versicolor | Iris-virginica |
+|---------------|-------------|----------------|-----------------|
+| sepal_length  | 4.3         | 4.9            | 4.9             |
+| sepal_width   | 2.3         | 2.0            | 2.2             |
+| petal_length  | 1.0         | 3.0            | 4.5             |
+| petal_width   | 0.1         | 1.0            | 1.4             |  
+
+We can see that petal_width is the component with the smallest value for each class, while the sepal_length is the largest component for each iris type.  
+We also see that iris setosa has 3 of the 4 smallest values, while iris virginica has 3 of the 4 highest values.  
+This is consistent with the results described in the previous section(mean).  
+
+* Max Summary  
+This table shows the maximum data for each sample of 50 iris varieties.
+
+| class         | Iris-setosa | Iris-versicolor | Iris-virginica |
+|---------------|-------------|----------------|-----------------|
+| sepal_length  | 5.8         | 7.0            | 7.9             |
+| sepal_width   | 4.4         | 3.4            | 3.8             |
+| petal_length  | 1.9         | 5.1            | 6.9             |
+| petal_width   | 0.6         | 1.8            | 2.5             |
+
+Once again we can see that the iris virginica has higher values than the other two varieties, being much larger in size.  
+To see these results in a graphical form, go to section 6.  
+
+Scatter plot..........................................
+
+
+
+
+
+
+
 
 
  
@@ -370,9 +458,9 @@ Finally for the max case we repeat the previous step.
 
 
 
+___
 
-
-
+## Conclusions of the project
 
 
 
@@ -396,30 +484,7 @@ Finally for the max case we repeat the previous step.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-______
+___
 
 
 ![loading](https://user-images.githubusercontent.com/110190460/234225693-91160e61-66d0-40b2-aa39-7045b1034ac0.gif)
@@ -444,7 +509,11 @@ https://www.w3schools.com/python/pandas/pandas_cleaning_duplicates.asp  Duplicat
 https://www.w3schools.com/python/pandas/ref_df_groupby.asp  Pandas DataFrame groupby() Method 
 https://seaborn.pydata.org/generated/seaborn.histplot.html Seaborn histoplot  
 https://seaborn.pydata.org/tutorial/aesthetics.html Seaborn figure aesthetics  
-https://seaborn.pydata.org/tutorial/color_palettes.html Seaborn color paletes
+https://seaborn.pydata.org/tutorial/color_palettes.html Seaborn color paletes  
+https://stackoverflow.com/questions/48911572/seaborn-sns-set-changing-plot-background-color/66509649#66509649  Seaborn plot color  
+https://stackoverflow.com/questions/332289/how-do-i-change-the-size-of-figures-drawn-with-matplotlib  figsize parameter  
+https://www.markdownguide.org/basic-syntax/  Markdown
+
 
 
 
