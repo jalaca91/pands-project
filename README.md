@@ -78,7 +78,7 @@ The steps of this project can be divided into the following tasks:
 * A Readme file containing all the information and procedures used in the project
 * An analysis.py file containing all the code used
 * A text file which is the output of the Python script
-* Png formatted images of the visualised data inside 3 folders: Histograms,Scatterplots and Mean,min,max plots
+* Png formatted images of the visualised data inside 3 folders: Histograms,Scatter plots and Mean,min,max plots
 * Iris.csv dataset 
 
 ___
@@ -117,7 +117,7 @@ import pandas as pd
 ``  
 
 Therefore, the totality of the libraries used is as follows:  
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -137,9 +137,9 @@ However, this presents the iris file in txt format in which the data are separat
 In this format the 5 different characteristics are presented without a header.  
 To import the data pandas can be used by the following instructions:  
 
-``
+```python
 df.columns(['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class'])
-``  
+```  
 
 This fixed the absence of headings.  
 
@@ -156,29 +156,30 @@ ___
 Now that the data has been imported, it is important to perform a data cleansing, to remove files that may influence  
 the result of our analysis, i.e. corrupted data, empty cells, duplicates, incorrect data.  
 First of all, in the .py file containing our script it is necessary to import the libraries mentioned above to obtain these new functionalities.  
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd  
 ```  
 Once we import the libraries, we read the file named "iris_csv" into a Pandas Dataframe named "df", to access the information it contains.  
-``
+```python 
 df = pd.read_csv("iris_csv.csv")  
-``  
+```  
 To do the project we are asked to do the following: Outputs a summary of each variable to a single text file  
-``  
-summary = open("my_summary.txt", "w",newline='\n')
-``  
+
+```python
+  summary = open("my_summary.txt", "w",newline='\n')
+```  
 This create a folder called my_summary.txt, which will contain the result of the analyses performed by the script.  
 
 Now, it is time to clean the data,for this we are going to use several components of the Pandas module.  
 First we are going to clean up the empty cells, however this step can be omitted as the table shown in the description
 indicates that there are no missing values, so it also applies to wrong format.  
 However, we need to check for duplicate data to do so we type the following code in the terminal:
-``
+```python
 print(df.duplicated())
-``  
+```  
 
 ![image](https://user-images.githubusercontent.com/110190460/234237142-6325faba-25af-4832-ae94-fe0ccef3db00.png)  
 This function returns True for every row that is a duplicate, othwerwise False, so we can see there is no duplicate values.
@@ -188,7 +189,10 @@ This function returns True for every row that is a duplicate, othwerwise False, 
 Once the data have been cleaned, you can proceed to extract information from them.
 First, let's look at some basic statistical data for our dataset.  
 These statistics are the following: mean, standard deviation, minimum, maximum and percentiles (25%, 50% and 75%).  
-``df.describe(),"\n",file=summary``  
+```python
+df.describe(),"\n",file=summary
+```  
+
 With this function a summary of these characteristics is opened in the .txt file created earlier.  
 
 The explanation of these qualities is as follows:  
@@ -202,7 +206,7 @@ Percentile 50%(also known as the Median). The median cuts the data set in half.
 
 These basic statistical data would be collected as follows:  
 
-```
+```python
 Stat Summary: 
 
        sepal_length  sepal_width  petal_length  petal_width
@@ -227,7 +231,7 @@ For this, we will obtain 3 dataframes from the main one and each dataframe, usin
 We have now the basic statistical parameters for each of the 3 classes of flowers.  
 
 Iris-setosa  
-```
+```python
 Stat Summary setosa: 
 
        sepal_length  sepal_width  petal_length  petal_width
@@ -241,7 +245,7 @@ min         4.30000     2.300000      1.000000      0.10000
 max         5.80000     4.400000      1.900000      0.60000 
 ```  
 Iris-versicolor  
-``` 
+```python 
 Stat Summary versicolor: 
 
        sepal_length  sepal_width  petal_length  petal_width
@@ -255,7 +259,7 @@ min        4.900000     2.000000      3.000000     1.000000
 max        7.000000     3.400000      5.100000     1.800000 
 ```  
 Iris-virginica  
-```
+```python
 Stat Summary virginica: 
 
        sepal_length  sepal_width  petal_length  petal_width
@@ -270,14 +274,16 @@ max         7.90000     3.800000      6.900000      2.50000
 ``` 
 After obtaining the basic statistical parameters of our 3 classes of flowers, a data that I consider interesting is to group the means
 of the 3 classes of their 4 attributes(sepal_length sepal_width petal_length and petal_width), in order to facilitate the comparison of these data.  
-To do this again we use a feature of the Pandas library, called dataframe groupby method()  
-`` mean_df = df.groupby("class").mean().transpose() ``  
+To do this again we use a feature of the Pandas library, called dataframe groupby method() 
+```python  
+mean_df = df.groupby("class").mean().transpose() 
+```  
 
 With this line of code we manage to calculate the mean of each column that has the value "class" and store it in a new variable called mean_df
 where the values are transposed(they go from rows to columns).  
 
 It allows us to compare this attribute more easily and the result looks like this:
-``` 
+```python 
 Mean Summary: 
 
 class         Iris-setosa  Iris-versicolor  Iris-virginica
@@ -289,9 +295,12 @@ petal_width         0.244            1.326           2.026
 
 To look at the size of the plant attributes in more detail, we can also group the min and max values using the same method.  
 
-For minimum values: `` min_df = df.groupby("class").min().transpose() ``  
+For minimum values:
+```python 
+min_df = df.groupby("class").min().transpose() 
+```  
 
-```
+```python
 Min Summary:
 class         Iris-setosa  Iris-versicolor  Iris-virginica
 sepal_length          4.3              4.9             4.9
@@ -300,9 +309,12 @@ petal_length          1.0              3.0             4.5
 petal_width           0.1              1.0             1.4 
 ```  
 
-For maximum values: `` max_df = df.groupby("class").max().transpose() ``  
+For maximum values: 
+```python 
+max_df = df.groupby("class").max().transpose() 
+```  
 
-``` 
+```python 
 Max Summary:
 class         Iris-setosa  Iris-versicolor  Iris-virginica
 sepal_length          5.8              7.0             7.9
@@ -322,8 +334,9 @@ For this part we are going to use the functionalities offered by the matplotib a
 
 First of all we are going to make a histogram for each of the variables (petal_lenght,petal_width,sepal_lenght and sepal_width).  
 Using the following code (in this case applied to petal_length, for the other variables it is necessary to change the input of the x):  
-
-`` sns.displot(df, x="petal_length", hue="class", palette="colorblind", kde=False)``  
+```python 
+sns.displot(df, x="petal_length", hue="class", palette="colorblind", kde=False)
+```  
 
 This code generates a histogram using Seaborn's displot functionusing the data set df(previously used).  
 The histogram is using class to choose the 3 flower varieties and the colour palette is set to "colourblind".
@@ -343,7 +356,7 @@ To view the rest of the histograms for the other 3 characteristics, see :
 For this graph we are going to show the results obtained in the dataframe mean_df and it will show the averages of the different attributes of 
 each flower class.  
 We use the following code for this purpose  
-```
+```python
 mean_df.plot(kind="bar")  
 plt.title("Mean Summary")  
 plt.xlabel("Attributes")  
@@ -374,15 +387,11 @@ To conclude our data visualisation section, we will construct a scatter plot for
 A scatter plot is a type of graph used to show the relationship between two numerical variables.  
 Each point on the graph represents a pair of values, one for each variable. The horizontal axis represents one variable, and the vertical axis represents the other variable.  
 
-A scatter plot is commonly used to see if there is any correlation or pattern between the two variables.  
-If the points on the graph form a line or pattern, this indicates a relationship between the two variables.  
-On the other hand, if the points are randomly scattered, this indicates that there is no clear relationship between the two variables
-
 
 #### Petal Scatter plot  
 
 We use the following code to make this graph:  
-```  
+```python  
 plt.figure(figsize=(4,4)) 
 sns.scatterplot(x = 'petal_length', y = 'petal_width',data=df, hue='class', palette='colorblind')
 plt.title('Petal variables') 
@@ -391,7 +400,8 @@ plt.savefig("Scatterplot_petal.png")
 ```  
 
 The first line create a figure with 4x4 size  
-``sns.scatterplot(x = 'petal_length', y = 'petal_width',data=df, hue='class', palette='colorblind')`` This line creates a scatter plot using the Seaborn library with the petal_length variable on the x-axis and the petal_width variable on the y-axis with the data contained in the Dataframe df.  
+``sns.scatterplot(x = 'petal_length', y = 'petal_width',data=df, hue='class', palette='colorblind')``  
+This line creates a scatter plot using the Seaborn library with the petal_length variable on the x-axis and the petal_width variable on the y-axis with the data contained in the Dataframe df.  
 The hue parameter is set to the class variable, which allows us to color the points on the plot based on the class of iris they belong to.  
 The palette parameter sets the color scheme for the plot.  
 ``sns.set(style='dark') `` This line sets a dark background for the plot.   
@@ -451,10 +461,20 @@ This table shows the maximum data for each sample of 50 iris varieties.
 Once again we can see that the iris virginica has higher values than the other two varieties, being much larger in size.  
 To see these results in a graphical form, go to section 6.  
 
-Scatter plot..........................................
+Below we analyse the results visualised in the scatter plots.  
 
+* Scatter plot  
 
+A scatter plot is commonly used to see if there is any correlation or pattern between the two variables.  
+If the points on the graph form a line or pattern, this indicates a relationship between the two variables.  
+On the other hand, if the points are randomly scattered, this indicates that there is no clear relationship between the two variables.  
 
+When we made the graph on the petal variables, we could see that the distribution of the samples follows a kind of pattern, i.e. a similar behaviour. 
+I have included in the graph (manually) a trend line showing this phenomenon, which is clearly visible.
+
+![image](https://github.com/jalaca91/pands-project/assets/110190460/b3bdd79c-cd0a-461b-8d1f-8077932d1021)  
+
+However, the sepal scatter plot shows a much more random behaviour.
 
 
 
@@ -470,7 +490,16 @@ ___
 
 ## Conclusions of the project
 
+First of all, despite being a well-known dataset, I considered this project as a challenge because I had no previous experience with data
+analysis or programming. 
+The documentation work has allowed me to gradually put together the structure of the project and give it a certain coherence, as it is also
+the first time I have carried out a project of these characteristics, with the added difficulty of working full time simultaneously and needing to optimise my time management. 
 
+As for the multivariate dataset, despite being a sample composed of only 150 data and 4 attributes, I consider that the possibilities of analysis (linear regression, univariate analysis of each attribute, ANOVA test, Pearson's correlation, logistic regression...) offer a real rabbit hole, as well as endless tools and customisation possibilities. 
+So, I have tried to adjust the content to my circumstances in order to maximise the retention of this learning.
+ 
+To conclude, I consider that with this work I have achieved my personal goals and it has helped me to get started in this kind of projects
+and to scratch the surface of how much can be done with these tools and technologies.
 
 
 
@@ -494,10 +523,6 @@ ___
 
 ___
 
-
-![loading](https://user-images.githubusercontent.com/110190460/234225693-91160e61-66d0-40b2-aa39-7045b1034ac0.gif)
-
-
 ## References
 
 https://en.wikipedia.org/wiki/Iris_flower_data_set   Information about the dataset  
@@ -520,7 +545,8 @@ https://seaborn.pydata.org/tutorial/aesthetics.html Seaborn figure aesthetics
 https://seaborn.pydata.org/tutorial/color_palettes.html Seaborn color paletes  
 https://stackoverflow.com/questions/48911572/seaborn-sns-set-changing-plot-background-color/66509649#66509649  Seaborn plot color  
 https://stackoverflow.com/questions/332289/how-do-i-change-the-size-of-figures-drawn-with-matplotlib  figsize parameter  
-https://www.markdownguide.org/basic-syntax/  Markdown
+https://www.markdownguide.org/basic-syntax/  Markdown  
+https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-md-file Colors for github
 
 
 
