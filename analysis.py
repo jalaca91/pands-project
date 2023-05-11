@@ -86,20 +86,19 @@ plt.savefig("Max summary plot.png")
 
 # Scatterplot for sepal variables
 plt.figure(figsize=(4,4)) 
-sns.scatterplot(x = 'sepal_length', y = 'sepal_width',data=df, hue='class', palette='colorblind')
-plt.title('Sepal variables') 
-sns.set(style='dark') 
+sns.scatterplot(x = "sepal_length", y = "sepal_width",data=df, hue="class", palette="colorblind")
+plt.title("Sepal variables") 
+sns.set(style="dark") 
 plt.savefig("Scatterplot_sepal.png")  
 
 # Scatterplot for petal variables
 plt.figure(figsize=(4,4)) 
-sns.scatterplot(x = 'petal_length', y = 'petal_width',data=df, hue='class', palette='colorblind')
-plt.title('Petal variables') 
-sns.set(style='dark') 
+sns.scatterplot(x = "petal_length", y = "petal_width",data=df, hue="class", palette="colorblind")
+plt.title("Petal variables") 
+sns.set(style="dark") 
 plt.savefig("Scatterplot_petal.png") 
 
 plt.show()
-
 
 summary.close()     # Free up system resources and avoid problems
 
