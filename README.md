@@ -37,10 +37,10 @@ Most of the samples where collected on the same day and in the same area (two of
 This famous dataset could be the ABC of machine learning and data analysis.  
 
 The Iris dataset consists of three species of Iris flowers and 50 samples of each species, giving a sample of a total of 150 records under five attributes, which are:
-1. Sepal length(in cm)
-2. Sepal width(in cm)
-3. Setal length(in cm)
-4. Petal width(in cm)
+1. Sepal length(cm)
+2. Sepal width(cm)
+3. Setal length(cm)
+4. Petal width(cm)
 5. Class.
 
 The features of this sample are shown in the following image:
@@ -94,12 +94,12 @@ ___
 **The project uses the following libraries**:
 
 * Numpy  
-Is used for numerical computation that allows you to work with large, multi-dimensional arrays and matrices of numerical data. It provides a wide range of mathematical functions to operate on these arrays, making it an essential tool for scientific computing, data analysis, and machine learning. To find out more https://numpy.org/  
+Is used for numerical computation that allows you to work with large, multi-dimensional arrays and matrices of numerical data. It provides a wide range of mathematical functions to operate on these arrays, making it an essential tool for scientific computing, data analysis, and machine learning. To find out more: https://numpy.org/  
 `` 
 import numpy as np
 ``  
 * Matplotlib  
-Is a plotting library for the Python programming language that provides a wide variety of high-quality 2D and 3D graphs and plots. More of this in https://matplotlib.org/  
+Is a plotting library for the Python programming language that provides a wide variety of high-quality 2D and 3D graphs and plots. More of this: https://matplotlib.org/  
 ``
 import matplotlib.pyplot as plt
 ``
@@ -138,7 +138,7 @@ In this format the 5 different characteristics are presented without a header.
 To import the data pandas can be used by the following instructions:  
 
 ```python
-df.columns(['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class'])
+df.columns(["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
 ```  
 
 This fixed the absence of headings.  
@@ -169,7 +169,7 @@ df = pd.read_csv("iris_csv.csv")
 To do the project we are asked to do the following: Outputs a summary of each variable to a single text file  
 
 ```python
-  summary = open("my_summary.txt", "w",newline='\n')
+  summary = open("my_summary.txt", "w",newline="\n")
 ```  
 This create a folder called my_summary.txt, which will contain the result of the analyses performed by the script.  
 
@@ -201,7 +201,7 @@ The standard deviation is a measure of the amount of variation or dispersion of 
 Min is the smallest value in the set of values.  
 Max is the biggest value in the set of values.
 Percentile 25% is the value at which 25% of the answers lie below that value.  
-Percentile 75% lie above that value
+Percentile 75% lie above that value.
 Percentile 50%(also known as the Median). The median cuts the data set in half.  
 
 These basic statistical data would be collected as follows:  
@@ -393,18 +393,18 @@ Each point on the graph represents a pair of values, one for each variable. The 
 We use the following code to make this graph:  
 ```python  
 plt.figure(figsize=(4,4)) 
-sns.scatterplot(x = 'petal_length', y = 'petal_width',data=df, hue='class', palette='colorblind')
-plt.title('Petal variables') 
-sns.set(style='dark') 
+sns.scatterplot(x = "petal_length", y = "petal_width",data=df, hue="class", palette="colorblind")
+plt.title("Petal variables") 
+sns.set(style="dark") 
 plt.savefig("Scatterplot_petal.png") 
 ```  
 
 The first line create a figure with 4x4 size  
-``sns.scatterplot(x = 'petal_length', y = 'petal_width',data=df, hue='class', palette='colorblind')``  
+``sns.scatterplot(x = "petal_length", y = "petal_width",data=df, hue="class", palette="colorblind")``  
 This line creates a scatter plot using the Seaborn library with the petal_length variable on the x-axis and the petal_width variable on the y-axis with the data contained in the Dataframe df.  
 The hue parameter is set to the class variable, which allows us to color the points on the plot based on the class of iris they belong to.  
 The palette parameter sets the color scheme for the plot.  
-``sns.set(style='dark') `` This line sets a dark background for the plot.   
+``sns.set(style="dark") `` This line sets a dark background for the plot.   
 
 ![Scatterplot petal variables](https://github.com/jalaca91/pands-project/assets/110190460/9cc8e197-5e57-410f-bccb-288199b34c0e)  
 
